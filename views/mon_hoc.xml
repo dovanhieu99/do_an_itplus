@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="mon_hoc_tree_view" model="ir.ui.view">
+           <field name="name">Môn Học</field>
+           <field name="model">mon_hoc</field>
+           <field name="arch" type="xml">
+               <tree string="Môn Học">
+                   <field name="ma_mon"/>
+                   <field name="name"/>
+<!--                   <field name="gv"/>-->
+               </tree>
+           </field>
+       </record>
+
+        <record id="mon_hoc" model="ir.ui.view">
+            <field name="name">Môn Học</field>
+            <field name="model">mon_hoc</field>
+            <field name="arch" type="xml">
+                <form string="Môn Học">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="ma_mon"/>
+                            <h1>
+                                <field name="ma_mon" placeholder="Mã Môn" required="1"/>
+                            </h1>
+                        </div>
+                        <div class="oe_title">
+                            <label for="name"/>
+                            <h1>
+                                <field name="name" placeholder="Tên Môn" required="1"/>
+                            </h1>
+                        </div>
+                        <notebook>
+                            <page string="Mô tả">
+                                <field name="mota"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="mon_hoc_search" model="ir.ui.view">
+            <field name="name">Search</field>
+            <field name="model">mon_hoc</field>
+            <field name="arch" type="xml">
+                <search string="Search">
+                    <field name="ma_mon"/>
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="mon_hoc_form_view" model="ir.actions.act_window">
+            <field name="name">Môn Học</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mon_hoc</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+
+
+    </data>
+</odoo>

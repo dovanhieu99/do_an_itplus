@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_admin_khoa_hoc,access.admin.security,do_an.model_khoa_hoc,,1,1,1,1
+access_admin_students,access.admin.security,do_an.model_students,,1,1,1,1
+access_admin_chuyen_nganh,access.admin.security,do_an.model_chuyen_nganh,,1,1,1,1
+access_admin_mon_hoc,access.admin.security,do_an.model_mon_hoc,,1,1,1,1
+access_admin_class_class,access.admin.security,do_an.model_class_class,,1,1,1,1
+access_admin_points,access.admin.security,do_an.model_points,,1,1,1,1

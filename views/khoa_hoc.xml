@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="khoa_hoc_tree_view" model="ir.ui.view">
+            <field name="name">Khóa Học</field>
+            <field name="model">khoa.hoc</field>
+            <field name="arch" type="xml">
+                <tree string="Khóa Học">
+                    <field name="ma_khoa"/>
+                    <field name="name"/>
+                    <field name="count"/>
+                    <field name="count_cn"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="khoa_hoc_form_view" model="ir.ui.view">
+            <field name="name">Khóa Học</field>
+            <field name="model">khoa.hoc</field>
+            <field name="arch" type="xml">
+                <form string="Khóa Học">
+                    <header>
+                        <button name="check_khoa_hoc" type="object" string="Trạng thái" class="oe_highlight"/>
+                        <field name="state" widget="statusbar" statusbar_visible="dh,dkt" nolabel="1" readonly="1"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="expense_button_box">
+                            <button name="%(do_an.students_khoa_hoc)d"
+                                        type="action" class="oe_stat_button" icon="fa-address-book">
+                                <field name="count" widget="statinfo"/>
+                            </button>
+                        </div>
+                        <div class="oe_title">
+                            <label for="ma_khoa"/>
+                            <h1>
+                                <field name="ma_khoa" placeholder="Mã Khóa" required="1"/>
+                            </h1>
+                        </div>
+                        <div class="oe_title">
+                            <label for="name"/>
+                            <h1>
+                                <field name="name" placeholder="Tên Khóa" required="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="count_cn"/>
+                            </group>
+                            <group>
+                                <field name="tgbd" required="1"/>
+                                <field name="tgkt" required="1"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Các Chuyên Ngành">
+                                <field name="chuyen_nganh_ids"/>
+                            </page>
+                            <page string="DS sinh viên">
+                                <field name="sinh_vien_ids">
+                                    <tree editable="bottom">
+                                        <field name="masv"/>
+                                        <field name="name"/>
+                                        <field name="gioitinh"/>
+                                        <field name="chuyen_nganh_id"/>
+                                        <field name="state"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="khoa_hoc_view_search" model="ir.ui.view">
+            <field name="name">Search</field>
+            <field name="model">khoa.hoc</field>
+            <field name="arch" type="xml">
+                <search string="Search">
+                    <field name="ma_khoa"/>
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="khoa_hoc_view_action" model="ir.actions.act_window">
+            <field name="name">Khóa Học</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">khoa.hoc</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

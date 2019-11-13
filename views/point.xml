@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="points_tree_view" model="ir.ui.view">
+            <field name="name">Points</field>
+            <field name="model">points</field>
+            <field name="arch" type="xml">
+                <tree string="Points">
+                    <field name="student_id"/>
+                    <field name="class_class_id"/>
+                    <field name="point"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="points_tree_view_button" model="ir.ui.view">
+            <field name="name">Points</field>
+            <field name="model">points</field>
+            <field name="priority" eval="150"/>
+            <field name="arch" type="xml">
+                <tree string="Points">
+                    <field name="student_id"/>
+                    <field name="point"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="points_form_view" model="ir.ui.view">
+            <field name="name">Points</field>
+            <field name="model">points</field>
+            <field name="arch" type="xml">
+                <form string="Points">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="class_class_id"/>
+                            <h1>
+                                <field name="class_class_id" placeholder="Lớp học" required="1"
+                                       options="{'no_create': True, 'no_create_edit': True}" />
+
+                            </h1>
+                        </div>
+                        <group>
+                            <field name="student_id" options="{'no_create': True, 'no_create_edit': True}"
+                                    required="1" attrs="{'invisible':[('class_class_id','=',False)]}"/>
+                            <field name="subject_id" />
+                            <field name="point"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="points_form_view_button" model="ir.ui.view">
+            <field name="name">Points</field>
+            <field name="model">points</field>
+            <field name="priority" eval="150"/>
+            <field name="arch" type="xml">
+                <form string="Points">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="class_class_id"/>
+                            <h1>
+                                <field name="class_class_id" placeholder="Lớp học" required="1"
+                                     options="{'no_create': True, 'no_create_edit': True}"
+                                context="{'default_class_class_id': active_id}"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <field name="student_id" options="{'no_create': True, 'no_create_edit': True}"
+                                    required="1" attrs="{'invisible':[('class_class_id','=',False)]}"/>
+                            <field name="subject_id" />
+                            <field name="point"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="points_view_search" model="ir.ui.view">
+            <field name="name">Points Search</field>
+            <field name="model">points</field>
+            <field name="arch" type="xml">
+                <search string="Search">
+                    <field name="student_id"/>
+                    <field name="class_class_id"/>
+                    <field name="subject_id"/>
+                    <field name="point"/>
+
+                    <filter string="Sinh Viên" name="student_id"/>
+
+                    <group expand="0" string="Group By">
+                        <filter string="Sinh Viên" name="student_id" context="{'group_by':'student_id'}"/>
+                        <filter string="Lớp Học" name="class_class_id" context="{'group_by':'class_class_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="points_view_action" model="ir.actions.act_window">
+            <field name="name">Points</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">points</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="point_of_class" model="ir.actions.act_window">
+            <field name="name">Điểm Tổng Kết</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">points</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree', 'view_id': ref('points_tree_view_button')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('points_form_view_button')})]"/>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('class_class_id', '=' , active_id)]</field>
+        </record>
+
+    </data>
+</odoo>

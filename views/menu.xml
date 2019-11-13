@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="student_manager" name="Manager"/>
+
+        <menuitem id="khoa_hoc_menu" name="Khóa Học"
+                  parent="student_manager"
+                  action="khoa_hoc_view_action"
+                  sequence="1"/>
+<!--        group="base.group_user"/>-->
+        <menuitem id="chuyen_nganh_menu" name="Chuyên Ngành"
+                  parent="student_manager"
+                  action="chuyen_nganh_view"
+                  sequence="3"/>
+<!--                    group="base.group_user"/>-->
+        <menuitem id="student_child" name="Sinh Viên"
+                  parent="student_manager"
+                  action="students_view_action"
+                  sequence="2"/>
+<!--                group="base.group_user"/>-->
+        <menuitem id="points_menu" name="Điểm tổng kết"
+                  parent="student_manager"
+                  action="points_view_action"
+                  sequence="6"/>
+<!--        group="base.group_user"/>-->
+        <menuitem id="mon_hoc_menu" name="Môn Học"
+                  parent="student_manager"
+                  action="mon_hoc_form_view"
+                  sequence="4"/>
+<!--        group="base.group_user"/>-->
+        <menuitem id="class_menu" name="Lớp học"
+                  parent="student_manager"
+                  action="class_view_action"
+                  sequence="5"/>
+<!--                group="base.group_user"/>-->
+
+
+    </data>
+</odoo>

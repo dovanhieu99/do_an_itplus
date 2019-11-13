@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="class_tree_view" model="ir.ui.view">
+            <field name="name">Class</field>
+            <field name="model">class_class</field>
+            <field name="arch" type="xml">
+                <tree string="Class">
+                    <field name="name"/>
+                    <field name="gv"/>
+                    <field name="count"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="class_form_view" model="ir.ui.view">
+            <field name="name">Class</field>
+            <field name="model">class_class</field>
+            <field name="arch" type="xml">
+                <form string="Class">
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible="mt,dh,dhx" nolabel="1" readonly="1"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="expense_button_box">
+                            <button name="%(do_an.point_of_class)d"
+                                        type="action" class="oe_stat_button" icon="fa-address-book">
+                                <field name="count_point" widget="statinfo"/>
+                            </button>
+                        </div>
+                        <div class="oe_title">
+                            <label for="ma_lop"/>
+                            <h1>
+                                <field name="ma_lop" placeholder="Mã Lớp" required="1"/>
+                            </h1>
+                        </div><div class="oe_title">
+                            <label for="name"/>
+                            <h1>
+                                <field name="name" placeholder="Tên Lớp" required="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="gv" required="1"/>
+                                <field name="mon_hoc_id" required="1"/>
+                            </group>
+                            <group>
+                                <field name="count"/>
+                                <field name="date" readonly="1"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="DS Sinh viên">
+                                <field name="student_id">
+                                    <tree editable="bottom">
+                                        <field name="masv"/>
+                                        <field name="name"/>
+                                        <field name="chuyen_nganh_id"/>
+                                        <field name="khoa_id"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Points">
+                                <field name="new_point_ids">
+                                    <tree>
+                                        <field name="student_id"/>
+                                        <field name="point"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="class_class_search" model="ir.ui.view">
+            <field name="name">Search</field>
+            <field name="model">class_class</field>
+            <field name="arch" type="xml">
+                <search string="Search Class">
+                    <field name="name" domain="[('gv', 'ilike', self)]"/>
+                    <field name="gv"/>
+                    <separator/>
+
+                    <filter string="Đang học" name="dh" domain="[('state', '=', 'dh')]"/>
+                    <filter string="Đã học xong" name="dhx" domain="[('state', '=', 'dhx')]"/>
+                    <filter string="Mới tạo" name="mt" domain="[('state', '=', 'mt')]"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Trạng thái" name="state" context="{'group_by':'state'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="class_view_action" model="ir.actions.act_window">
+            <field name="name">Class</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">class_class</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

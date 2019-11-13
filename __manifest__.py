@@ -1,0 +1,27 @@
+# -*- coding: utf-8 -*-
+{
+    'name': 'Quản lí Sinh Viên',
+    'version': '12.0.1.0.0',
+    'summary': 'Demo Module Relation',
+    'sequence': 1,
+    'description': """""",
+    'category': '',
+    'website': '',
+    'depends': ['base'],
+    'data': [
+        'data/sequence.xml',
+        'security/group.xml',
+        'security/ir.model.access.csv',
+        'views/students.xml',
+        'views/khoa_hoc.xml',
+        'views/chuyen_nganh.xml',
+        'views/mon_hoc.xml',
+        'views/point.xml',
+        'views/class_class.xml',
+        'views/menu.xml',
+        # 'wizard/point_point.xml',
+    ],
+    'installable': True,
+    'application': False,
+    'auto_install': False,
+}
