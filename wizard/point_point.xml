@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="point_point_form" model="ir.ui.view">
+            <field name="name">Điểm Tổng Kết</field>
+            <field name="model">point_point</field>
+            <field name="arch" type="xml">
+                <form string="Điểm Tổng Kết">
+                    <sheet>
+                        <notebook>
+                            <page string="Lớp">
+                                <field name="class_class_ids">
+                                    <tree editable="bottom">
+                                        <field name="student_id"/>
+                                        <field name="pointaa"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                        <footer>
+                            <button string="Ok" name="def_point" type="object"
+                                    class="btn-primary"/>
+                            <button string="Cancel" class="btn-default" special="cancel"/>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="point_point_view_action" model="ir.actions.act_window">
+            <field name="name">Điểm Tổng Kết</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">point_point</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+        <!-- Inherit Form View to Modify it -->
+        <record id="class_class_inherit_view" model="ir.ui.view">
+            <field name="name">Class</field>
+            <field name="model">points</field>
+            <field name="inherit_id" ref="do_an.points_form_view"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//form/sheet" position="before">
+                    <header>
+                        <button name="%(do_an.point_point_view_action)d"
+                                type="action"
+                                class="oe_highlight"
+                                string="Điểm Tổng Kết"/>
+                    </header>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>
