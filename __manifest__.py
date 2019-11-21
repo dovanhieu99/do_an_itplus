@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'Quản lí Sinh Viên alo',
+    'name': 'Quản lí Sinh Viên - FINAL CODE',
     'version': '12.0',
     'summary': 'Demo Module Relation',
     'sequence': 1,
