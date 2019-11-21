@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<report
+            id="student_list_id"
+            model="students"
+            string="Danh sach sinh vien"
+            report_type="qweb-pdf"
+            name="do_an_itplus.student_list"
+            file="do_an_itplus.student_list"
+            attachment_use="True"
+        />
+
+		<template id="student_list">
+			<t t-call="report.html_container">
+				<t t-foreach="docs" t-as="doc">
+					<t t-call="do_an_itplus.student_list_document"/>
+				</t>
+			</t>
+		</template>
+
+	</data>
+</odoo>

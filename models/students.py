@@ -25,6 +25,8 @@ class Students(models.Model):
     khoa_id = fields.Many2one(comodel_name="khoa.hoc", string="Khóa Học")
     points = fields.Float(string="Điểm")
 
+    dem_soluong = fields.Integer(string="Số môn", compute='dem_sluong')
+
     _sql_constraints = [
         ('phone_unique', 'unique(phone)', 'Số điện thoại trùng rồi. Hãy nhập số khác!')
     ]
@@ -68,3 +70,8 @@ class Students(models.Model):
             return {'domain': {'chuyen_nganh_id': []}}
 
 
+    @api.multi
+    @api.depends('class_class_ids')
+    def dem_sluong(self):
+        for rec in self:
+            rec.dem_soluong = len(rec.class_class_ids)

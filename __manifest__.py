@@ -11,6 +11,8 @@
     'data': [
         'data/sequence.xml',
         'views/students.xml',
+        'views/student_report.xml',
+        'views/student_report_template.xml',
         'views/khoa_hoc.xml',
         'views/chuyen_nganh.xml',
         'views/mon_hoc.xml',

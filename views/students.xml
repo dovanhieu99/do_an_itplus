@@ -40,6 +40,14 @@
                         <field name="state" widget="statusbar" statusbar_visible="mh,hd,dhx" nolabel="1" readonly="1"/>
                     </header>
                     <sheet>
+                        <div class="oe_button_box" name="expense_button_box">
+                            <button name=""
+                                        type="action"
+                                        class="oe_stat_button"
+                                        icon="fa-book">
+                                <field name="dem_soluong" widget="statinfo"/>
+                            </button>
+                        </div>
                         <div class="oe_title">
                             <label for="masv"/>
                             <h1>

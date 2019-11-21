@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <template id="student_list_document">
+            <t t-call="report.external_layout">
+                <div class="page" style="font-family: Kh Battambang;font-size:13px; padding-top: 200px;  padding-bottom: 300px;">
+                    <div class="row text-center">
+                        <strong style="font-weight: 700;font-size:30px;">THÔNG TIN SINH VIÊN</strong>
+                    </div>
+                    <p/>
+
+                    <table style="width:100%;font-size:15px;">
+                        <tr style="padding-bottom: 130px;">
+                            <td style="padding-bottom: 6px;">
+                                Họ và tên:
+                                <span t-field="doc.name"/>
+                            </td>
+                            <td style="padding-bottom: 6px;">
+                                Ngày sinh:
+                                <span t-field="doc.bod"/>
+                            </td>
+                            <td style="padding-bottom: 6px;">
+                                Trạng thái:
+                                <span t-field="doc.state"/>
+                            </td>
+                        </tr>
+                        <tr style="padding-top: 130px;">
+                            <td style="padding-bottom: 6px;">
+                                Khóa học:
+                                <span t-field="doc.khoa_id"/>
+                            </td>
+
+                            <td style="padding-bottom: 6px;">
+                                Chuyên ngành học:
+                                <span t-field="doc.chuyen_nganh_id"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-bottom: 6px;">
+                                Địa chỉ:
+                                <span t-field="doc.address"/>
+                            </td>
+
+                            <td style="padding-bottom: 6px;">
+                                Email:
+                                <span t-field="doc.mail"/>
+                            </td>
+                             <td style="padding-bottom: 6px;">
+                                Điện thoại:
+                                <span t-field="doc.phone"/>
+                            </td>
+                        </tr>
+                    </table>
+                    <div style="padding-top: 50px;">
+                        <strong>Danh sách các lớp đang theo học</strong>
+                    </div>
+                    <table class="table" style="width: 100%;font-size:13px;">
+                        <thead>
+                            <tr>
+                                <th class="text-center" style="border: solid 1px black;width:5%;">STT</th>
+                                <th class="text-center" style="border: solid 1px black;width:57%;">Tên lớp</th>
+                                <th style="border: solid 1px black;width:10%;" class="text-center">Giáo viên</th>
+                                <th class="text-center" style="border: solid 1px black;width:13%;">Môn học</th>
+<!--                                <th t-if="display_discount" class="text-right" groups="sale.group_discount_per_so_line">Disc.(%)</th>-->
+                                <th style="border: solid 1px black;width:15%;" class="text-center">Trạng thái</th>
+                            </tr>
+                        </thead>
+                        <tbody class="invoice_tbody">
+                            <t t-set="i" t-value="1"/>
+                            <tr t-foreach="doc.class_class_ids" t-as="l">
+                                <td class="text-right" style="border: solid 1px black;">
+                                    <span t-esc="i"/>
+                                    <t t-set="i" t-value="i+1"/>
+                                </td>
+                                <td style="border: solid 1px black;">
+                                    <span t-field="l.name"/>
+                                </td>
+                                <td style="border: solid 1px black;" class="text-right">
+                                    <span t-field="l.gv"/>
+                                </td>
+                                <td style="border: solid 1px black;" class="text-right">
+                                    <span t-field="l.mon_hoc_id"/>
+
+                                </td>
+                                <td style="border: solid 1px black;" class="text-right">
+                                    <span t-field="l.state"/>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                    <p/>
+
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>
