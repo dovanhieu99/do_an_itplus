@@ -26,7 +26,7 @@
                     </header>
                     <sheet>
                         <div class="oe_button_box" name="expense_button_box">
-                            <button name="%(do_an.students_khoa_hoc)d"
+                            <button name="%(do_an_itplus.students_khoa_hoc)d"
                                         type="action" class="oe_stat_button" icon="fa-address-book">
                                 <field name="count" widget="statinfo"/>
                             </button>

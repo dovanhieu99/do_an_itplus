@@ -38,12 +38,12 @@
         <record id="class_class_inherit_view" model="ir.ui.view">
             <field name="name">Class</field>
             <field name="model">points</field>
-            <field name="inherit_id" ref="do_an.points_form_view"/>
+            <field name="inherit_id" ref="do_an_itplus.points_form_view"/>
             <field name="arch" type="xml">
 
                 <xpath expr="//form/sheet" position="before">
                     <header>
-                        <button name="%(do_an.point_point_view_action)d"
+                        <button name="%(do_an_itplus.point_point_view_action)d"
                                 type="action"
                                 class="oe_highlight"
                                 string="Điểm Tổng Kết"/>

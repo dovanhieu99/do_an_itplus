@@ -24,7 +24,7 @@
                     </header>
                     <sheet>
                         <div class="oe_button_box" name="expense_button_box">
-                            <button name="%(do_an.point_of_class)d"
+                            <button name="%(do_an_itplus.point_of_class)d"
                                         type="action" class="oe_stat_button" icon="fa-address-book">
                                 <field name="count_point" widget="statinfo"/>
                             </button>
