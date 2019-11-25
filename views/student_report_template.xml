@@ -3,7 +3,7 @@
     <data noupdate="1">
         <template id="student_list_document">
             <t t-call="report.external_layout">
-                <div class="page" style="font-family: Kh Battambang;font-size:13px; padding-top: 200px;  padding-bottom: 300px;">
+                <div class="page" style="font-family: Kh Battambang;font-size:13px; padding-top: 150px;  padding-bottom: 300px;">
                     <div class="row text-center">
                         <strong style="font-weight: 700;font-size:30px;">THÔNG TIN SINH VIÊN</strong>
                     </div>
@@ -93,6 +93,7 @@
                     <p/>
 
                 </div>
+                 <div style="page-break-before: always;"/>
             </t>
         </template>
     </data>
